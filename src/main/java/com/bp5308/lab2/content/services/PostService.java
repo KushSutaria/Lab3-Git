@@ -24,4 +24,13 @@ public class PostService {
     public void deletePost(Post post) {
         postRepo.delete(post);
     }
+
+    public void deletePost(String postId) {
+        List<Post> posts = findAll();
+        for (Post post : posts) {
+            if (post.getId() == Integer.parseInt(postId)) {
+                postRepo.delete(post);
+            }
+        }
+    }
 }
